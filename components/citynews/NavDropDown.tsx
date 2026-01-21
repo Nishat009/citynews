@@ -32,9 +32,9 @@ export default function NavDropdown({
       <Link
         href={href}
         className={`
-          relative px-3 py-2 text-sm lg:text-base font-medium uppercase tracking-wide 
-          flex items-center gap-1.5 transition-colors duration-300
-          text-gray-800
+          relative mr-[22px] text-sm lg:text-[15px] font-bold uppercase leading-[30px] 
+          flex items-center gap-1.5 transition-colors duration-300 tracking-[-0.05em]
+          text-black
         `}
       >
         {label}
@@ -43,7 +43,7 @@ export default function NavDropdown({
           <ChevronDown 
             className={`
               w-4 h-4 transition-colors duration-300
-              ${showActiveUnderline ? 'text-yellow-600' : 'text-gray-600 group-hover:text-yellow-600'}
+              ${showActiveUnderline ? 'text-black' : ' group-hover:text-black'}
             `}
           />
         )}
@@ -51,7 +51,7 @@ export default function NavDropdown({
         {/* Animated / static underline */}
         <span
           className={`
-            absolute bottom-0 left-0 h-[2px] bg-yellow-500
+            absolute bottom-0 left-0 h-[2px] bg-black
             ${showActiveUnderline 
               ? 'w-full' 
               : 'w-0 scale-x-0 group-hover:w-full group-hover:scale-x-100'
@@ -65,21 +65,21 @@ export default function NavDropdown({
       {hasSubmenu && (
         <div
           className={`
-            absolute top-full left-0 min-w-[220px] mt-2
-            bg-white border border-gray-200 rounded-lg shadow-xl 
+            absolute top-full left-0 min-w-[220px]
+            bg-white rounded-xs shadow-xl 
             opacity-0 scale-95 invisible group-hover:opacity-100 group-hover:scale-100 group-hover:visible
             transition-all duration-200 ease-out z-50
             pointer-events-none group-hover:pointer-events-auto
           `}
         >
-          <div className="py-1.5">
+          <div>
             {submenu.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 className="
-                  block px-5 py-2.5 text-sm text-gray-700 
-                  hover:bg-yellow-50 hover:text-yellow-700 transition-colors
+                  block px-5 py-2.5 text-sm text-[#212121] 
+                  hover:bg-[#f5f5f5]  transition-colors border-b border-[#eee] last:border-0 text-[13px] tracking-[-0.05em]
                 "
               >
                 {item.label}

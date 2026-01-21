@@ -1,4 +1,10 @@
 // data/cityNewsData.js
+import topFeaturedImg1 from "@/public/image/top-feature-1.jpg";
+import topFeaturedImg2 from "@/public/image/top-feature-2.jpg";
+import topFeaturedImg3 from "@/public/image/top-feature-3.jpg";
+import topFeaturedImg4 from "@/public/image/top-feature-4.jpg";
+import topFeaturedImg5 from "@/public/image/top-feature-5.jpg";
+import topFeaturedImg6 from "@/public/image/top-feature-6.jpg";
 
 import latest1 from "@/public/image/latest-1.jpg";
 import latest2 from "@/public/image/latest-2.jpg";
@@ -87,7 +93,7 @@ export const topSliderNews = [
 // MAIN FEATURED NEWS
 export const featuredNews = {
   id: 1,
-  title: "‘Election Was Rigged’ Says Opposition, Police Confirm Three Dead",
+  title: "‘Election was rigged’ says opposition, police confirm three dead",
   image: featuredImg,
   category: "Politics",
   author: "John Doe",
@@ -134,4 +140,52 @@ export const navItems = [
   { label: 'OPINION', href: '/opinion' },
   { label: 'LIFESTYLE', href: '/lifestyle' },
   { label: 'SPORTS', href: '/sports' },
+];
+
+// Top Featured Carousel (5–6 large items)
+export const topFeaturedCarousel = [
+  {
+    id: 1,
+    title: "Jokowi, Prabowo could buy more time in VP selection",
+    excerpt: "Short description or none",
+    image: topFeaturedImg1, // large image placeholder
+    category: "Politics",
+    date: "AUGUST 10, 2018",
+  },
+  {
+    id: 2,
+    title: "Annual open water swim returns to Western Australia in February",
+    image: topFeaturedImg2,
+    category: "Sports",
+    date: "AUGUST 10, 2018",
+  },
+  {
+    id: 3,
+    title: "The Sacred Balinese 'Fire Horse' Dance: Sanghyang Jaran Dance",
+    image: topFeaturedImg3,
+    category: "Culture",
+    date: "FEBRUARY 17, 2020",
+  },
+  {
+    id: 4,
+    title: "A Digital Media Startup Growing Up With Millennial Women",
+    image: topFeaturedImg4,
+    category: "Lifestyle",
+    date: "AUGUST 10, 2018",
+  },
+  {
+    id: 5,
+    title: "China To Build Indonesia's Longest Bridge In North Kalimantan",
+    image: topFeaturedImg5,
+    category: "Business",
+    date: "AUGUST 8, 2018",
+  },
+  // Optional 6th item
+  {
+    id: 6,
+    title: "China’s Peng banned and fined for Wimbledon corruption attempt",
+    image: topFeaturedImg6,
+    category: "Sports",
+    date: "Auguest 9, 2018",
+  },
 ];

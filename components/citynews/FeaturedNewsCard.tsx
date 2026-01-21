@@ -2,34 +2,37 @@
 import React from 'react';
 import { featuredNews } from '../data/cityNewsData';
 import Image from 'next/image';
+import { Clock9 } from 'lucide-react';
 // import { featuredNews } from '@/data/cityNewsData';
 
 export default function FeaturedNewsCard() {
   const { title, image, category, author, date, excerpt } = featuredNews;
 
   return (
-    <article className="group">
-      <a href="#" className="block relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow">
+    <article className="group relative mt-8 h-[36rem] bg-white">
+      <a href="#" className="block overflow-hidden">
         <Image
           src={image}
           alt={title}
-          className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover "
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        
-        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white">
-          <span className="inline-block px-3 py-1.5 text-xs sm:text-sm font-bold bg-yellow-400 text-black uppercase tracking-wide mb-3 rounded-sm">
+        <div className="absolute z-[99999] top-68 left-0 right-0 m-5 px-[30px] pt-[15px] pb-5 text-black bg-white">
+          <span className="text-[11px] tracking-[-0.05em] font-normal uppercase  text-[#a0a0a0] leading-normal text-center">
             {category}
           </span>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-3 line-clamp-3">
+          <h2 className="text-xl sm:text-2xl md:text-[28px] font-bold leading-normal mb-3 line-clamp-3 tracking-tight">
             {title}
           </h2>
-          <p className="text-sm sm:text-base text-gray-200 line-clamp-2 mb-4">
+
+          <div className="text-[11px] opacity-90 flex items-center gap-0.5">
+            <span className='italic text-[#a0a0a0] font-[11px] tracking-[-0.05em]'>by </span> <span className='text-black font-bold'>{author}</span> <span className='italic text-[#a0a0a0]'> and 1 others</span>
+            <span className='flex text-[#a0a0a0]'><Clock9 className='w-2.5 h-2.5 mt-1 text-[#a0a0a0] ml-2 mr-0.5' /> {date}</span>
+            <span className='text-[#a0a0a0] ml-1.5'>🗨 0</span>
+          </div>
+           <p className="text-sm font-serif my-[15px] text-[#666666] line-clamp-2">
             {excerpt}
           </p>
-          <div className="text-xs sm:text-sm opacity-90 font-medium">
-            by {author} • {date}
-          </div>
+          <a href="#" className='mt-[15px] text-[11px]  px-[18px] py-1.5 shadow uppercase hover:text-white hover:bg-black transition'>Read more</a>
         </div>
       </a>
     </article>
