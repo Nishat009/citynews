@@ -1,5 +1,6 @@
 // components/citynews/SliderCard.tsx
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 type SliderCardProps = {
@@ -10,7 +11,7 @@ type SliderCardProps = {
 
 export default function SliderCard({ title, image, category }: SliderCardProps) {
   return (
-    <a href="#" className=" W-[172px] flex gap-3 group">
+    <Link href="#" className=" W-[172px] flex gap-3 group">
       <div className="rounded w-[55px] h-[55px] gap-3">
         <Image
           src={image}
@@ -22,6 +23,6 @@ export default function SliderCard({ title, image, category }: SliderCardProps) 
       <h3 className="text-xs font-normal tracking-tighter w-[123px] leading-tight">
         {title}
       </h3>
-    </a>
+    </Link>
   );
 }

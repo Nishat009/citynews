@@ -1,20 +1,22 @@
 // components/citynews/OpinionSidebar.tsx
 import React from 'react';
 import { opinionList } from '../data/cityNewsData';
+import { roboto } from '@/lib/fonts';
 // import { opinionList } from '@/data/cityNewsData';
 
 export default function OpinionSidebar() {
   return (
-    <div>
-      <h2 className="text-lg font-bold uppercase tracking-wide mb-4 border-b border-gray-300 pb-2">
+    <div className='bg-white p-5 mt-[30px]'>
+      <h2 className={`text-base font-bold  mb-5border-b-2 border-gray-300  tracking-wide pb-2 text-gray-900 ${roboto.className}`}>
         Opinion
       </h2>
-      <div className="space-y-3">
+      <div className="w-16 h-0.5 -mt-0.5 bg-black"></div>
+      <div className="space-y-[14px] ">
         {opinionList.map((item) => (
           <a
             key={item.id}
             href="#"
-            className="block text-sm md:text-base font-medium leading-relaxed hover:text-yellow-700 transition line-clamp-2"
+            className="block border-b border-[#eee] text-sm font-normal tracking-tighter line-clamp-2"
           >
             ► {item.title}
           </a>

@@ -1,8 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
-// import roboto from '@/lib/fonts';           // ← import here
 import './globals.css';
-import { roboto } from '@/lib/fonts';
+import { robotoCondensed } from '@/lib/fonts';
 
 export const metadata: Metadata = {
   title: 'The Downtown',
@@ -15,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={roboto.className}>   {/* ← apply here */}
-      <body className={roboto.className}>
+    <html lang="en" className={robotoCondensed.className}>   {/* ← apply here */}
+      <body className={robotoCondensed.className}>
         {/* Navbar, main content, etc. */}
         {children}
       </body>

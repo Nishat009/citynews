@@ -21,7 +21,8 @@ import featuredImg from "@/public/image/feature-1.jpg";
 import right1 from "@/public/image/right-1.jpg";
 import right2 from "@/public/image/right-2.jpg";
 
-
+import horizontalImg1 from "@/public/image/horizontalImg-1.jpg";
+import horizontalImg2 from "@/public/image/horizontalImg-2.jpg";
 // LEFT SIDEBAR — "The Latest"
 export const latestNews = [
   {
@@ -112,6 +113,7 @@ export const rightSidebarNews = [
     category: "Opinion",
     author: "John Doe",
     date: "August 10, 2018",
+    description:"Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life..."
   },
   {
     id: 2,
@@ -120,6 +122,7 @@ export const rightSidebarNews = [
     category: "Lifestyle",
     author: "John Doe",
     date: "August 14, 2018",
+    description:"Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life..."
   },
 ];
 export const navItems = [
@@ -187,5 +190,22 @@ export const topFeaturedCarousel = [
     image: topFeaturedImg6,
     category: "Sports",
     date: "Auguest 9, 2018",
+  },
+];
+
+export const horizontalFeaturedCards = [
+  {
+    id: 1,
+    title: "Grab tackles Jakarta's odd-even license plate policy with special algorithm",
+    image: horizontalImg1, // or your own path
+    category: "BUSINESS",
+    date: "February 17, 2020",
+  },
+  {
+    id: 2,
+    title: "Jokowi supporters try to prevent anti-Jokowi activist from entering Batam",
+    image: horizontalImg2,
+    category: "POLITICS",
+    date: "August 10, 2018",
   },
 ];

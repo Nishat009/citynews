@@ -1,5 +1,6 @@
 // components/citynews/LatestItem.tsx  (unchanged — already accepts props)
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 type LatestItemProps = {
@@ -10,7 +11,7 @@ type LatestItemProps = {
 
 export default function LatestItem({ title, image, category }: LatestItemProps) {
   return (
-    <a href="#" className="group flex items-start gap-3 hover:opacity-90 transition">
+    <Link href="#" className="group flex items-start gap-3 hover:opacity-90 transition">
       <div className="flex-shrink-0  overflow-hidden rounded">
         <Image
           src={image}
@@ -24,6 +25,6 @@ export default function LatestItem({ title, image, category }: LatestItemProps) 
           {title}
         </h3>
       </div>
-    </a>
+    </Link>
   );
 }

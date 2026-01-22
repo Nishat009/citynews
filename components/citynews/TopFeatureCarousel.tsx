@@ -5,6 +5,8 @@ import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { topFeaturedCarousel } from '../data/cityNewsData';
 import Image from 'next/image';
+import { roboto } from '@/lib/fonts';
+import Link from 'next/link';
 
 export default function TopFeaturedCarousel() {
     // For simplicity: horizontal scroll with snap + arrows
@@ -34,7 +36,7 @@ export default function TopFeaturedCarousel() {
                     className="flex overflow-hidden snap-x snap-mandatory scrollbar-hide gap-0"
                 >
                     {topFeaturedCarousel.map((item) => (
-                        <a key={item.id}
+                        <Link key={item.id}
                             href="#"
                             className="flex-shrink-0 
                                     w-full            
@@ -63,17 +65,17 @@ export default function TopFeaturedCarousel() {
 
                             {/* Title + date below image */}
                             <div className="p-4 md:p-5 bg-white border-l border-b border-t border-[#eee]">
-                                <h5 className="text-[11px] tracking-[-0.05em] font-normal uppercase  text-[#a0a0a0] leading-normal text-center">
+                                <h5 className={`text-[11px] font-normal uppercase  text-[#a0a0a0] leading-normal text-center ${roboto.className}`}>
                                     {item.category}
                                 </h5>
                                 <h3 className="text-base tracking-[-0.05em] md:text-lg lg:text-xl font-bold text-center mt-[15px] mb-2.5 leading-tight  text-[#212121] transition-colors">
                                     {item.title}
                                 </h3>
-                                <p className="mt-2 text-[11px] text-[#a0a0a0] text-center">
+                                <p className={`mt-2 text-[11px] text-[#a0a0a0] text-center ${roboto.className}`}>
                                     {item.date}
                                 </p>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
 
