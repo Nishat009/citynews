@@ -25,10 +25,10 @@ export default function Navbar() {
         <>
             {/* Main Navbar */}
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 z-[9999999] ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
                     }`}
             >
-                <div className="max-w-[1380px] mx-auto px-4">
+                <div className="mx-auto px-4 ">
                     <div className='border-b'> 
                         <Link href="/">
                         <Image src={logo} className="flex justify-center my-5 mx-auto items-center" alt="The Downtown" width={180} height={40} />
@@ -37,7 +37,7 @@ export default function Navbar() {
 
                     </div>
 
-                    <div className="flex items-center justify-center my-3">
+                    <div className="flex items-center justify-center my-3 max-w-[1380px] mx-auto">
 
 
 

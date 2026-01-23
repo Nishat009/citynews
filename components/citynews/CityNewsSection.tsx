@@ -20,25 +20,31 @@ export default function CityNewsSection({ }: CityNewsSectionProps = {}) {
         <div className="relative mb-4 lg:mb-0">
           <SidebarDrawer />  {/* button is inside here */}
         </div>
-        <div className="grid gap-6 lg:gap-8 grid-cols-12">
-          {/* Left Sidebar – always visible on lg+ */}
-          <div className=" col-span-3">
-            <LatestSidebar />
-            <OpinionSidebar />
-          </div>
+       <div className="grid grid-cols-12 gap-6 lg:gap-8">
+  
+  {/* MAIN CONTENT — goes FIRST on mobile */}
+  <div className="col-span-12 md:col-span-7 lg:col-span-6 order-1">
+    <div>
+      <NewsSlider />
+      <FeaturedNewsCard />
+    </div>
 
-          <div className="col-span-6">
-            <div>
-              <NewsSlider />
-              <FeaturedNewsCard />
-            </div>
-            <HorizontalFeaturedCards />
-          </div>
+    <HorizontalFeaturedCards />
+  </div>
 
-          <div className="col-span-3">
-            <RightSidebar />
-          </div>
-        </div>
+  {/* LEFT SIDEBAR — goes DOWN on mobile */}
+  <div className="col-span-12 md:col-span-5 lg:col-span-3 order-2 lg:order-1">
+    <LatestSidebar />
+    <OpinionSidebar />
+  </div>
+
+  {/* RIGHT SIDEBAR — always last */}
+  <div className="col-span-12 md:col-span-5 lg:col-span-3 order-3">
+    <RightSidebar />
+  </div>
+
+</div>
+
       </div>
     </section>
   );

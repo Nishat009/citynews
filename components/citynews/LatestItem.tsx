@@ -12,11 +12,11 @@ type LatestItemProps = {
 export default function LatestItem({ title, image, category }: LatestItemProps) {
   return (
     <Link href="#" className="group flex items-start gap-3 hover:opacity-90 transition">
-      <div className="flex-shrink-0  overflow-hidden rounded">
+      <div className="flex-shrink-0 overflow-hidden">
         <Image
           src={image}
           alt={title}
-          className="w-[100px] h-[76px] object-cover group-hover:scale-105 transition-transform duration-300"
+          className="md:w-[70px] md:h-[56px] lg:w-[100px] lg:h-[76px]"
         />
       </div>
       <div className="flex-1">

@@ -6,7 +6,7 @@ type OpinionItemProps = { text: string };
 
 export default function OpinionItem({ text }: OpinionItemProps) {
   return (
-    <Link href="#" className="block text-sm md:text-base font-medium hover:text-yellow-600 transition line-clamp-2">
+    <Link href="#" className="block  text-sm md:text-base font-medium transition line-clamp-2">
       ► {text}
     </Link>
   );

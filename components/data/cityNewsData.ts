@@ -15,6 +15,8 @@ import latest5 from "@/public/image/latest-5.jpg";
 import slider1 from "@/public/image/slider-1.jpg";
 import slider2 from "@/public/image/slider-2.jpg";
 import slider3 from "@/public/image/slider-3.jpg";
+import slider4 from "@/public/image/slider-4.jpg";
+import slider5 from "@/public/image/slider-5.jpg";
 
 import featuredImg from "@/public/image/feature-1.jpg";
 
@@ -86,6 +88,18 @@ export const topSliderNews = [
     id: 3,
     title: "A Digital Media Startup Growing Up With Millennial Women",
     image: slider3,
+    category: "Business",
+  },
+  {
+    id: 4,
+    title: "Ngurah Rai International Airport To Close For 24 Hours For Nyepi",
+    image: slider4,
+    category: "Travel",
+  },
+  {
+    id: 5,
+    title: "Indonesia To Offer Infrastructure Projects At IMF-World Bank Meeting",
+    image: slider5,
     category: "Business",
   },
 ];

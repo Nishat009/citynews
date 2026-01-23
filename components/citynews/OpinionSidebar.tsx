@@ -11,12 +11,12 @@ export default function OpinionSidebar() {
         Opinion
       </h2>
       <div className="w-16 h-0.5 -mt-0.5 bg-black"></div>
-      <div className="space-y-[14px] ">
+      <div className="space-y-[14px] mt-5">
         {opinionList.map((item) => (
           <a
             key={item.id}
             href="#"
-            className="block border-b border-[#eee] text-sm font-normal tracking-tighter line-clamp-2"
+            className="block border-b border-[#eee] last:border-0 text-sm font-normal pb-2 tracking-tighter line-clamp-2"
           >
             ► {item.title}
           </a>
