@@ -15,7 +15,7 @@ import 'swiper/css/navigation';
 
 export default function TopFeaturedCarousel() {
     return (
-        <div className="relative bg-gray-900 text-white mt-10 group/carousel">
+        <div className="relative bg-white text-white group/carousel">
             {/* Full-width container */}
             <div className="relative overflow-hidden">
 
@@ -52,7 +52,7 @@ export default function TopFeaturedCarousel() {
                                 </div>
 
                                 {/* Title + date below image */}
-                                <div className="p-4 md:p-5 bg-white border-l border-b border-t border-[#eee]">
+                                <div className="p-4 md:p-5 bg-white border-l lg:border-b border-t border-[#eee]">
                                     <h5
                                         className={`text-[11px] font-normal uppercase text-[#a0a0a0] leading-normal text-center ${roboto.className}`}
                                     >

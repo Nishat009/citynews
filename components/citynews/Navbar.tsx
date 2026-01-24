@@ -1,112 +1,184 @@
-// components/layout/Navbar.tsx
-"use client"; // needed for interactivity (state, scroll)
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Menu, Search, X } from 'lucide-react'; // or use heroicons / your icon lib
-import { navItems } from '../data/cityNewsData';
-import Image from 'next/image';
-import logo from '@/public/image/logo.png'; // Ensure you have a logo image at this path
-import NavDropdown from './NavDropDown';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X, Search } from "lucide-react";
+
+import { navItems } from "../data/cityNewsData";
+import NavDropdown from "./NavDropDown";
+import SocialIcons from "./SocialIcons";
+
+import desktopLogo from "@/public/image/logo.png";
+import mobileLogo from "@/public/image/logo_mobile@2x.png";
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isLg, setIsLg] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  /* ---------------- Detect lg breakpoint ---------------- */
+  useEffect(() => {
+    const checkScreen = () => setIsLg(window.innerWidth >= 1024);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
-    return (
-        <>
-            {/* Main Navbar */}
-            <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 z-[9999999] ${isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
-                    }`}
+  /* ---------------- Close mobile menu when lg ---------------- */
+  useEffect(() => {
+    if (isLg) {
+      setIsMobileOpen(false);
+    }
+  }, [isLg]);
+
+  /* ---------------- Scroll shadow ---------------- */
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* ---------------- Lock body scroll on mobile menu ---------------- */
+  useEffect(() => {
+    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileOpen]);
+
+  return (
+    <>
+      {/* ================= NAVBAR ================= */}
+      <header
+        className={`top-0 left-0 right-0 z-[10000] transition-all duration-300 ${
+          isScrolled
+            ? "lg:bg-white lg:shadow-md"
+            : "bg-white/90 backdrop-blur-lg"
+        }`}
+      >
+        <div className="px-4">
+          {/* Logo Row */}
+          <div className="relative h-[70px] flex items-center justify-center lg:border-b">
+            <Link href="/">
+              {isLg ? (
+                <Image
+                  src={desktopLogo}
+                  alt="The Downtown"
+                  width={180}
+                  height={40}
+                  priority
+                />
+              ) : (
+                <Image
+                  src={mobileLogo}
+                  alt="The Downtown"
+                  width={140}
+                  height={40}
+                  priority
+                />
+              )}
+            </Link>
+
+            {/* Hamburger */}
+            <button
+              className="lg:hidden absolute top-5 left-5"
+              onClick={() => setIsMobileOpen(true)}
+              aria-label="Open menu"
             >
-                <div className="mx-auto px-4 ">
-                    <div className='border-b'> 
-                        <Link href="/">
-                        <Image src={logo} className="flex justify-center my-5 mx-auto items-center" alt="The Downtown" width={180} height={40} />
+              <Menu className="w-6 h-6" />
+            </button>
+          </div>
 
-                    </Link>
-
-                    </div>
-
-                    <div className="flex items-center justify-center my-3 max-w-[1380px] mx-auto">
-
-
-
-                        {/* Desktop Menu */}
-                        <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-                            {navItems.map((item) => (
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex justify-center my-3 max-w-[1380px] mx-auto">
+            <nav className="flex items-center space-x-2">
+              {navItems.map((item) => (
                 <NavDropdown
-  key={item.label}
-  label={item.label}
-  href={'href' in item ? item.href : undefined}
-  submenu={'submenu' in item ? item.submenu : undefined}
-/>
+                  key={item.label}
+                  label={item.label}
+                  href={"href" in item ? item.href : undefined}
+                  submenu={"submenu" in item ? item.submenu : undefined}
+                />
               ))}
-                        </nav>
+            </nav>
+          </div>
+        </div>
+      </header>
 
-                        {/* Right Icons */}
-                        <div className="flex items-center space-x-4 md:space-x-6">
-                            {/* <button aria-label="Search" className="text-gray-700 hover:text-yellow-600 transition">
-                                <Search className="w-5 h-5 md:w-6 md:h-6" />
-                            </button> */}
+      {/* ================= MOBILE OFFCANVAS ================= */}
+      <>
+        {/* Overlay */}
+        <div
+          className={`fixed inset-0 bg-black/70 z-[9999] transition-opacity duration-500 ease-in-out ${
+            isMobileOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+          onClick={() => setIsMobileOpen(false)}
+        />
 
-                            {/* Mobile Hamburger */}
-                            <button
-                                className="lg:hidden text-gray-800"
-                                onClick={() => setIsMobileOpen(!isMobileOpen)}
-                                aria-label="Toggle menu"
-                            >
-                                {isMobileOpen ? (
-                                    <X className="w-6 h-6" />
-                                ) : (
-                                    <Menu className="w-6 h-6" />
-                                )}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </header>
+        {/* Close button */}
+        <button
+          className={`fixed top-5 right-5 z-[10001] transition-opacity duration-500 ease-in-out ${
+            isMobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+          onClick={() => setIsMobileOpen(false)}
+          aria-label="Close menu"
+        >
+          <X className="w-7 h-7 text-gray-300" />
+        </button>
 
-            {/* Mobile Menu Overlay */}
-            {isMobileOpen && (
-                <div className="fixed inset-0 z-40 lg:hidden bg-black/50" onClick={() => setIsMobileOpen(false)}>
-                    <div
-                        className="absolute top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white shadow-xl p-6 overflow-y-auto"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="flex justify-between items-center mb-8">
-                            <span className="text-xl font-bold">Menu</span>
-                            <button onClick={() => setIsMobileOpen(false)}>
-                                <X className="w-6 h-6" />
-                            </button>
-                        </div>
-                        <nav className="flex flex-col space-y-4">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.label}
-                                    href={item.href}
-                                    className="text-lg font-medium uppercase text-gray-800 hover:text-yellow-600 transition py-2 border-b border-gray-100"
-                                    onClick={() => setIsMobileOpen(false)}
-                                >
-                                    {item.label}
-                                </Link>
-                            ))}
-                        </nav>
-                    </div>
-                </div>
-            )}
+        {/* Drawer */}
+        <div
+          className={`fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white z-[10000]
+            transform transition-transform duration-500 ease-in-out
+            ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
+          `}
+        >
+          <div className="p-6 overflow-y-auto h-full">
+            {/* Search */}
+            <div className="relative mb-6">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-full border rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-gray-300"
+              />
+              <Search className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-gray-500" />
+            </div>
 
-            {/* Spacer to prevent content jump when navbar becomes fixed */}
-            <div className="h-16 md:h-20" />
-        </>
-    );
+            {/* Menu Items */}
+            <nav className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setIsMobileOpen(false)}
+                  className="text-lg font-bold text-[#212121]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="mt-8">
+              <SocialIcons />
+            </div>
+
+            <p className="text-[#757575] text-xs mt-5">
+              © 2026{" "}
+              <Link href="/" className="border-b border-[#aaa]">
+                JNews
+              </Link>{" "}
+              – Premium WordPress news & magazine theme by{" "}
+              <Link href="/" className="border-b border-[#aaa]">
+                Jegtheme
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </>
+    </>
+  );
 }

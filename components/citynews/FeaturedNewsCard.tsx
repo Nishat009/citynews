@@ -18,7 +18,7 @@ export default function FeaturedNewsCard() {
           alt={title}
           className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] object-cover "
         />
-        <div className="absolute z-[9999] top-68 left-0 right-0 m-5 px-[30px] pt-[15px] pb-5 text-black bg-white">
+        <div className="absolute lg:z-[9999] top-68 left-0 right-0 m-5 px-[30px] pt-[15px] pb-5 text-black bg-white">
           <span className={`text-[11px] font-normal uppercase  text-[#a0a0a0] leading-normal text-center hover:text-black ${roboto.className}`}>
             {category}
           </span>

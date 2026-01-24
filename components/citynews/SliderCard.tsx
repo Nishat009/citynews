@@ -11,16 +11,16 @@ type SliderCardProps = {
 
 export default function SliderCard({ title, image, category }: SliderCardProps) {
   return (
-    <Link href="#" className=" W-[150px] flex gap-3 group">
-      <div className="rounded w-[55px] h-[55px] gap-3">
+    <Link href="#" className=" w-full lg:w-[150px] flex gap-3 group">
+      <div className="w-[55px] h-[55px] gap-3">
         <Image
           src={image}
           alt={title}
-          className="!w-[55px] !h-[55px] rounded object-cover"
+          className="w-[55px] h-[55px]"
         />
         
       </div>
-      <h3 className="text-xs font-normal tracking-tighter w-[93px] leading-tight">
+      <h3 className="text-xs font-normal tracking-tighter lg:w-[93px] leading-tight">
         {title}
       </h3>
     </Link>
