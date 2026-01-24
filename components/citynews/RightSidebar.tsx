@@ -1,4 +1,3 @@
-// components/citynews/RightSidebar.tsx
 import React from 'react';
 import SidebarCard from './SidebarCard';
 import { rightSidebarNews } from '../data/cityNewsData';

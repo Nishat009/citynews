@@ -1,4 +1,3 @@
-// components/layout/NavDropdown.tsx
 import React from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
@@ -12,7 +11,7 @@ type NavDropdownProps = {
   label: string;
   href?: string;
   submenu?: SubmenuItem[];
-  isActive?: boolean; // we'll control HOME manually
+  isActive?: boolean;
 };
 
 export default function NavDropdown({
@@ -22,8 +21,6 @@ export default function NavDropdown({
   isActive = false,
 }: NavDropdownProps) {
   const hasSubmenu = !!submenu && submenu.length > 0;
-  
-  // HOME is always considered "active"
   const isHome = label.toUpperCase() === 'HOME';
   const showActiveUnderline = isActive || isHome;
 
@@ -40,28 +37,24 @@ export default function NavDropdown({
         {label}
 
         {hasSubmenu && (
-          <ChevronDown 
+          <ChevronDown
             className={`
               w-4 h-4 transition-colors duration-300
               ${showActiveUnderline ? 'text-black' : ' group-hover:text-black'}
             `}
           />
         )}
-
-        {/* Animated / static underline */}
         <span
           className={`
             absolute bottom-0 left-0 h-[2px] bg-black
-            ${showActiveUnderline 
-              ? 'w-full' 
+            ${showActiveUnderline
+              ? 'w-full'
               : 'w-0 scale-x-0 group-hover:w-full group-hover:scale-x-100'
             }
             ${showActiveUnderline ? '' : 'origin-left transition-transform duration-400 ease-out'}
           `}
         />
       </Link>
-
-      {/* Dropdown submenu */}
       {hasSubmenu && (
         <div
           className={`

@@ -1,8 +1,7 @@
-// components/citynews/OpinionSidebar.tsx
 import React from 'react';
 import { opinionList } from '../data/cityNewsData';
 import { roboto } from '@/lib/fonts';
-// import { opinionList } from '@/data/cityNewsData';
+import Link from 'next/link';
 
 export default function OpinionSidebar() {
   return (
@@ -13,13 +12,13 @@ export default function OpinionSidebar() {
       <div className="w-16 h-0.5 -mt-0.5 bg-black"></div>
       <div className="space-y-[14px] mt-5">
         {opinionList.map((item) => (
-          <a
+          <Link
             key={item.id}
             href="#"
             className="block border-b border-[#eee] last:border-0 text-sm font-normal pb-2 tracking-tighter line-clamp-2"
           >
             ► {item.title}
-          </a>
+          </Link>
         ))}
       </div>
     </div>

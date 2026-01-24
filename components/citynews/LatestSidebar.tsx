@@ -1,9 +1,7 @@
-// components/citynews/LatestSidebar.tsx
 import React from 'react';
 import LatestItem from './LatestItem';
 import { latestNews } from '../data/cityNewsData';
 import { roboto } from '@/lib/fonts';
-// import { latestNews } from '@/data/cityNewsData';   // adjust path if needed
 
 export default function LatestSidebar() {
   return (

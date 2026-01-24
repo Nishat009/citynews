@@ -1,11 +1,9 @@
-// components/citynews/FeaturedNewsCard.tsx
 import React from 'react';
 import { featuredNews } from '../data/cityNewsData';
 import Image from 'next/image';
 import { Clock9 } from 'lucide-react';
 import { ptSerif, roboto } from '@/lib/fonts';
 import Link from 'next/link';
-// import { featuredNews } from '@/data/cityNewsData';
 
 export default function FeaturedNewsCard() {
   const { title, image, category, author, date, excerpt } = featuredNews;
@@ -31,7 +29,7 @@ export default function FeaturedNewsCard() {
             <span className={`flex italic text-[#a0a0a0] font-[11px]   ${ptSerif.className}`}><Clock9 className={`w-2.5 h-2.5 mt-1 text-[#a0a0a0] ml-2 mr-0.5 ${ptSerif.className}`} /> {date}</span>
             <span className='text-[#a0a0a0] ml-1.5'>🗨 0</span>
           </div>
-           <p className={`text-sm font-serif my-[15px] text-[#666666] line-clamp-2 ${ptSerif.className}`}>
+          <p className={`text-sm font-serif my-[15px] text-[#666666] line-clamp-2 ${ptSerif.className}`}>
             {excerpt}
           </p>
           <Link href="#" className={`mt-[15px] text-[11px]  px-[18px] py-1.5 shadow uppercase hover:text-white hover:bg-black transition ${roboto.className} `}>Read more</Link>

@@ -6,19 +6,15 @@ import { topFeaturedCarousel } from '../data/cityNewsData';
 import Image from 'next/image';
 import { roboto } from '@/lib/fonts';
 import Link from 'next/link';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 export default function TopFeaturedCarousel() {
     return (
         <div className="relative bg-white text-white group/carousel">
-            {/* Full-width container */}
             <div className="relative overflow-hidden">
-
                 <Swiper
                     modules={[Navigation]}
                     loop
@@ -42,7 +38,6 @@ export default function TopFeaturedCarousel() {
                                 href="#"
                                 className="flex-shrink-0 snap-start relative group block"
                             >
-                                {/* Large image */}
                                 <div className="relative aspect-[4/3] md:aspect-[6/4] overflow-none">
                                     <Image
                                         src={item.image}
@@ -50,8 +45,6 @@ export default function TopFeaturedCarousel() {
                                         className="w-full h-full object-cover transition-all duration-500"
                                     />
                                 </div>
-
-                                {/* Title + date below image */}
                                 <div className="p-4 md:p-5 bg-white border-l lg:border-b border-t border-[#eee]">
                                     <h5
                                         className={`text-[11px] font-normal uppercase text-[#a0a0a0] leading-normal text-center ${roboto.className}`}
@@ -65,8 +58,7 @@ export default function TopFeaturedCarousel() {
                                         {item.title}
                                     </h3>
 
-                                    <p
-                                        className={`mt-2 text-[11px] text-[#a0a0a0] text-center ${roboto.className}`}
+                                    <p className={`mt-2 text-[11px] text-[#a0a0a0] text-center ${roboto.className}`}
                                     >
                                         {item.date}
                                     </p>
@@ -75,8 +67,6 @@ export default function TopFeaturedCarousel() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-
-                {/* Navigation Arrows - SAME DESIGN */}
                 <button
                     className="featured-prev absolute cursor-pointer left-2 opacity-0 
                     group-hover/carousel:pointer-events-auto
